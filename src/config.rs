@@ -51,24 +51,13 @@ impl Config {
 
     fn get_config_path() -> Result<PathBuf, Box<dyn Error>> {
         let home_dir = env::var("HOME")?;
-
-        let mut path = PathBuf::from(home_dir);
-        path.push(".config");
-        path.push("calories");
-        path.push("config.json");
-
+        let path = PathBuf::from(home_dir).join(".config/calories/config.json");
         Ok(path)
     }
 
     fn get_default_data_path() -> Result<PathBuf, Box<dyn Error>> {
         let home_dir = env::var("HOME")?;
-
-        let mut path = PathBuf::from(home_dir);
-        path.push(".local");
-        path.push("share");
-        path.push("calories");
-        path.push("data.json");
-
+        let path = PathBuf::from(home_dir).join(".local/share/calories/data.json");
         Ok(path)
     }
 }
